@@ -15,4 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4 #clone the repository
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag my-image-name:${{github.run_number}}
+    - name: Built latest
+      run: docker build . --file Dockerfile --tag my-image-name
